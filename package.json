@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^20.4.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "http-server": "^14.1.1",
+    "prettier": "^3.0.0",
+    "winston": "^3.10.0",
+    "yahoo-finance2": "^2.4.2"
+  },
+  "name": "stonks",
+  "version": "1.0.0",
+  "description": "stonk analyzer",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.4",
+    "type": "module",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "test": "npm run test",
+    "format": "./node_modules/.bin/prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "keywords": [
+    "stonks"
+  ],
+  "author": "OlegKofman",
+  "license": "ISC",
+  "type": "module"
+}
