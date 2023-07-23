@@ -2,7 +2,7 @@ import yahooFinance from '../../../../node_modules/yahoo-finance2/dist/esm/src/i
 import { logger } from '../logger/logger.js';
 
 export class DataUtils {
-    public static async fetchStockData(symbol: string) {
+    async fetchStockData(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
             return JSON.stringify(data);
@@ -11,7 +11,7 @@ export class DataUtils {
         }
     }
 
-    public static async getLiveStockPrice(symbol: string) {
+    async getLiveStockPrice(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 
@@ -28,7 +28,7 @@ export class DataUtils {
         }
     }
 
-    public static async getLiveStockPriceChange(symbol: string) {
+    async getLiveStockPriceChange(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 
@@ -38,6 +38,39 @@ export class DataUtils {
                 return priceChange;
             } else {
                 throw new Error('Regular market price change is not available.');
+            }
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
+    async getTrailingPE(symbol: string) {
+        try {
+            const data = await yahooFinance.quoteSummary(symbol);
+
+            const trailingPE = data?.summaryDetail?.trailingPE;
+
+            if (trailingPE !== undefined) {
+                return trailingPE;
+            } else {
+                throw new Error('Trailing PE is not available.');
+            }
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
+
+    async getForwardPE(symbol: string) {
+        try {
+            const data = await yahooFinance.quoteSummary(symbol);
+
+            const forwardPE = data?.summaryDetail?.forwardPE;
+
+            if (forwardPE !== undefined) {
+                return forwardPE;
+            } else {
+                throw new Error('Forward PE is not available.');
             }
         } catch (error) {
             logger.error(error);
