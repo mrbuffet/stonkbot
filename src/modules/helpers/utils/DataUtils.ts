@@ -2,7 +2,7 @@ import yahooFinance from '../../../../node_modules/yahoo-finance2/dist/esm/src/i
 import { logger } from '../logger/logger.js';
 
 export class DataUtils {
-    public  async fetchStockData(symbol: string) {
+    public async fetchStockData(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
             return JSON.stringify(data);
@@ -11,7 +11,7 @@ export class DataUtils {
         }
     }
 
-    public  async getLiveStockPrice(symbol: string) {
+    public async getLiveStockPrice(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 
@@ -28,7 +28,7 @@ export class DataUtils {
         }
     }
 
-    public  async getLiveStockPriceChange(symbol: string) {
+    public async getLiveStockPriceChange(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 
@@ -44,7 +44,7 @@ export class DataUtils {
             throw error;
         }
     }
-    public  async getTrailingPE(symbol: string) {
+    public async getTrailingPE(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 
@@ -61,7 +61,7 @@ export class DataUtils {
         }
     }
 
-    public  async getForwardPE(symbol: string) {
+    public async getForwardPE(symbol: string) {
         try {
             const data = await yahooFinance.quoteSummary(symbol);
 

@@ -1,7 +1,7 @@
 import { logger } from './modules/helpers/logger/logger.js';
 import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
 
-const symbol = 'AAPL';
+const symbol = 'GOOG';
 const data = await dataUtils.fetchStockData(symbol);
 logger.info(`Data for ${symbol}: ${data}`);
 
