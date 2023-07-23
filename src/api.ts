@@ -1,12 +1,10 @@
 import { logger } from './modules/helpers/logger/logger.js';
-import { rulesUtils } from './modules/helpers/idexUtils.js';
+import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
 
 // API Function to fetch stock data
 export async function fetchData(symbol: string) {
   try {
-    const response = await fetch(`/api/fetchStockData?symbol=${symbol}`);
-    const data = await response.json();
-    return data;
+    return await dataUtils.fetchStockData(symbol);
   } catch (error) {
     logger.error('Error fetching stock data:', error);
     return null;
@@ -16,9 +14,7 @@ export async function fetchData(symbol: string) {
 // API Function to fetch live stock price
 export async function fetchPrice(symbol: string) {
   try {
-    const response = await fetch(`/api/getLiveStockPrice?symbol=${symbol}`);
-    const price = await response.json();
-    return price;
+    return dataUtils.getLiveStockPrice(symbol);
   } catch (error) {
     logger.error('Error fetching live stock price:', error);
     return null;
@@ -28,9 +24,7 @@ export async function fetchPrice(symbol: string) {
 // API Function to fetch live stock price change
 export async function fetchPriceChange(symbol: string) {
   try {
-    const response = await fetch(`/api/getLiveStockPriceChange?symbol=${symbol}`);
-    const priceChange = await response.json();
-    return priceChange;
+    return dataUtils.getLiveStockPriceChange(symbol);
   } catch (error) {
     logger.error('Error fetching live stock price change:', error);
     return null;

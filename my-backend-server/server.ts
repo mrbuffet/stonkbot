@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { checkRule1, fetchData, fetchPrice, fetchPriceChange } from '../src/api.js';
+import { checkRule1, fetchData, fetchPrice, fetchPriceChange } from '../src/api';
 
 const app = express();
 const port = 8080; // Choose any available port number

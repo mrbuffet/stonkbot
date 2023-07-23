@@ -1,4 +1,4 @@
-import { checkRule1, fetchData, fetchPrice, fetchPriceChange } from "./api";
+import { checkRule1, fetchData, fetchPrice, fetchPriceChange } from "./api.js";
 
 // ui/ui.js
 document.getElementById('stockForm')!.addEventListener('submit', async (event) => {

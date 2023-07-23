@@ -1,7 +1,6 @@
 // start.ts
 import { logger } from './modules/helpers/logger/logger.js';
 import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
-import './src/server'; // Import the backend server code
 
 const symbol = 'GOOG';
 const data = await dataUtils.fetchStockData(symbol);
