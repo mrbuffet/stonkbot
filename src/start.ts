@@ -1,10 +1,9 @@
-// start.ts
 import { logger } from './modules/helpers/logger/logger.js';
 import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
 
 const symbol = 'GOOG';
 const data = await dataUtils.fetchStockData(symbol);
-logger.info(`Data for ${symbol}: ${JSON.stringify(data)}`);
+logger.info(`Data for ${symbol}: ${data}`);
 
 const price = await dataUtils.getLiveStockPrice(symbol);
 logger.info(`Price for ${symbol}: ${price}`);

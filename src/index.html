@@ -1,17 +1,119 @@
-<!-- ui/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stock Data Viewer</title>
+  <title>StonkBot Stock Data Analyzer</title>
+  <style>
+    /* Add custom styles for the UI */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      font-size: 16px;
+      border: 2px solid #007BFF;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #menu {
+      display: flex;
+      justify-content: space-between;
+      background-color: #f2f2f2;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    #menu a {
+      margin-right: 20px;
+      color: #007BFF;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    #menu a:hover {
+      text-decoration: underline;
+    }
+
+    #logo {
+      width: 150px; /* Adjust the width to make the logo bigger */
+      height: 150px; /* Adjust the height to make the logo bigger */
+    }
+
+    #about {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #about p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <h1>Stock Data Viewer</h1>
+  <div id="menu">
+    <img id="logo" src="/pictures/logo.png" alt="StonkBot Logo">
+    <div>
+      <a href="#">AnalyzerAI</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+
+  <h1>StonkBot Stock Data Analyzer</h1>
+
   <form id="stockForm">
     <label for="symbolInput">Enter Stock Symbol:</label>
     <input type="text" id="symbolInput" required />
-    <button type="submit">Fetch Data</button>
+    <button type="submit">Start</button>
   </form>
+
   <div id="resultContainer"></div>
+
+  <div id="about">
+    <p>&copy; StonkBot 2023 - All rights reserved.</p>
+  </div>
+
+  <footer>
+    <p>Powered by StonkBot AI</p>
+  </footer>
 
   <script src="ui.js"></script>
 </body>

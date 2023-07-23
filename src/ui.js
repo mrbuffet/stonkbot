@@ -1,14 +1,13 @@
-import { checkRule1, fetchData, fetchPrice, fetchPriceChange } from "./api.js";
-
 // ui/ui.js
-document.getElementById('stockForm')!.addEventListener('submit', async (event) => {
+import { fetchData, fetchPrice, fetchPriceChange, checkRule1 } from './api.js';
+document.getElementById('stockForm').addEventListener('submit', async (event) => {
   event.preventDefault();
   const symbolInput = document.getElementById('symbolInput');
   if (!symbolInput) {
     console.error('Symbol input element not found.');
     return;
   }
-  const symbol = (symbolInput as HTMLInputElement).value;
+  const symbol = symbolInput.value;
 
   // Fetch stock data and display the results
   const data = await fetchData(symbol);

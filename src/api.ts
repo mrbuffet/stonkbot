@@ -1,5 +1,5 @@
 import { logger } from './modules/helpers/logger/logger.js';
-import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
+import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js'
 
 // API Function to fetch stock data
 export async function fetchData(symbol: string) {
