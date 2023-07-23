@@ -1,6 +1,4 @@
-import { DataUtils } from './modules/helpers/utils/DataUtils.js';
 import { logger } from './modules/helpers/logger/logger.js';
-import { RulesUtils } from './modules/helpers/utils/RulesUtils.js';
 import { dataUtils, rulesUtils } from './modules/helpers/idexUtils.js';
 
 const symbol = 'AAPL';
