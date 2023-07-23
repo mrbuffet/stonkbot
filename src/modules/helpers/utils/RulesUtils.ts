@@ -1,8 +1,8 @@
-import { dataUtils } from '../idexUtils';
-import { logger } from '../logger/logger';
+import { dataUtils } from '../idexUtils.js';
+import { logger } from '../logger/logger.js';
 
 export class RulesUtils {
-    public  async trailingVsForwardPeRule(symbol: string) {
+    public async trailingVsForwardPeRule(symbol: string) {
         logger.info('Starting PE Rule');
         if ((await dataUtils.getForwardPE(symbol)) < (await dataUtils.getTrailingPE(symbol))) {
             logger.info('PE Rule Passed');

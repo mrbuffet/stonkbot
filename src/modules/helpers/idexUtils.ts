@@ -1,5 +1,5 @@
-import { DataUtils } from './utils/DataUtils';
-import { RulesUtils } from './utils/RulesUtils';
+import { DataUtils } from './utils/DataUtils.js';
+import { RulesUtils } from './utils/RulesUtils.js';
 
 const dataUtils = new DataUtils();
 const rulesUtils = new RulesUtils();
