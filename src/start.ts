@@ -1,5 +1,5 @@
-import { dataUtils, rulesUtils } from './modules/helpers/index.js';
-import { logger } from './modules/helpers/logger/logger.js';
+import { dataUtils, rulesUtils } from "./modules/helpers/index.js";
+import { logger } from "./modules/helpers/logger/logger.js";
 
 const symbol = 'AAPL';
 const data = await dataUtils.fetchStockData(symbol);
