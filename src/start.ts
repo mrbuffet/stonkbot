@@ -1,5 +1,5 @@
+import { dataUtils, rulesUtils } from './modules/helpers/index.js';
 import { logger } from './modules/helpers/logger/logger.js';
-import { dataUtils } from './modules/helpers/index.js';
 
 const symbol = 'AAPL';
 const data = await dataUtils.fetchStockData(symbol);
@@ -16,3 +16,6 @@ logger.info(`Trailing PE for ${symbol}: ${trailingPE}`);
 
 const forwardPE = await dataUtils.getForwardPE(symbol);
 logger.info(`Forward PE for ${symbol}: ${forwardPE}`);
+
+const peRule = await rulesUtils.trailingVsForwardPeRule(symbol);
+logger.info(`PE Rule for ${symbol}: ${peRule}`);
