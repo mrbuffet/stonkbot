@@ -44,4 +44,37 @@ export class DataUtils {
             throw error;
         }
     }
+    public async getTrailingPE(symbol: string) {
+        try {
+            const data = await yahooFinance.quoteSummary(symbol);
+
+            const trailingPE = data?.summaryDetail?.trailingPE;
+
+            if (trailingPE !== undefined) {
+                return trailingPE;
+            } else {
+                throw new Error('Trailing PE is not available.');
+            }
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
+
+    public async getForwardPE(symbol: string) {
+        try {
+            const data = await yahooFinance.quoteSummary(symbol);
+
+            const forwardPE = data?.summaryDetail?.forwardPE;
+
+            if (forwardPE !== undefined) {
+                return forwardPE;
+            } else {
+                throw new Error('Forward PE is not available.');
+            }
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
 }
