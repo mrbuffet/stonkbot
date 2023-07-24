@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@nestjs/cli": "^10.1.10",
     "@nestjs/common": "^10.1.1",
+    "@nestjs/core": "^10.1.1",
     "@types/axios": "^0.14.0",
     "@types/express": "^4.17.17",
     "@types/node": "^20.4.0",
@@ -28,7 +30,6 @@
   },
   "scripts": {
     "test": "npm run test",
-    "start": "nodemon dist/app.js",
     "format": "./node_modules/.bin/prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "keywords": [
