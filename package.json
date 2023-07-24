@@ -25,6 +25,7 @@
   },
   "scripts": {
     "test": "npm run test",
+    "start": "nodemon dist/app.js",
     "format": "./node_modules/.bin/prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "keywords": [
