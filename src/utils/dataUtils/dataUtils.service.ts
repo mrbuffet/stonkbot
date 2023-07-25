@@ -56,7 +56,7 @@ export class DataUtilsService {
       if (trailingPE !== undefined) {
         return trailingPE;
       } else {
-        throw new Error('Trailing PE is not available.');
+        this.logger.error('Trailing PE is not available.');
       }
     } catch (error) {
       this.logger.error(error);
@@ -73,7 +73,7 @@ export class DataUtilsService {
       if (forwardPE !== undefined) {
         return forwardPE;
       } else {
-        throw new Error('Forward PE is not available.');
+        this.logger.error('Forward PE is not available.');
       }
     } catch (error) {
       this.logger.error(error);

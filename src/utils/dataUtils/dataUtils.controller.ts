@@ -1,4 +1,4 @@
-import { Controller, Post, Logger } from '@nestjs/common';
+import { Controller, Post, Logger, Body } from '@nestjs/common';
 import { DataUtilsService } from './dataUtils.service';
 
 @Controller('/data')
@@ -7,8 +7,13 @@ export class DataUtilsController {
   private readonly logger = new Logger(DataUtilsService.name);
 
   @Post('/run')
-  async run(): Promise<any> {
-    const symbol = 'GOOG';
+  async run(@Body() requestBody: { symbol: string }): Promise<any> {
+    const { symbol } = requestBody;
+
+    if (!symbol) {
+      return { error: 'Symbol parameter is missing.' };
+    }
+
     const data = await this.dataUtils.fetchStockData(symbol);
     this.logger.log(`Data for ${symbol}: ${data}`);
 
