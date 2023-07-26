@@ -1,12 +1,12 @@
 import { Controller, Post, Logger, Body } from '@nestjs/common';
 import { DataUtilsService } from './dataUtils.service';
 
-@Controller('/data')
+@Controller('/check')
 export class DataUtilsController {
   constructor(private readonly dataUtils: DataUtilsService) {}
   private readonly logger = new Logger(DataUtilsService.name);
 
-  @Post('/run')
+  @Post()
   async run(@Body() requestBody: { symbol: string }): Promise<any> {
     const { symbol } = requestBody;
 
