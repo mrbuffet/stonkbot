@@ -7,7 +7,7 @@ import { RuleUtilsModule } from './modules/rulesUtils/ruleUtils.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: './config/.develop.env',
+      envFilePath: '.env',
       isGlobal: true,
     }),
     DataUtilsModule,
