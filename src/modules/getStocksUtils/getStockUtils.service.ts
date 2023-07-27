@@ -4,7 +4,7 @@ import axios from 'axios';
 @Injectable()
 export class StocksService {
   private readonly BASE_URL = 'https://www.alphavantage.co/query';
-  async getSP500List(apiKey: string): Promise<any> {
+  async getAllStocks(apiKey: string): Promise<any> {
     const params = {
       function: 'LISTING_STATUS',
       apikey: process.env.API_KEY,

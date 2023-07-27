@@ -5,8 +5,8 @@ import { StocksService } from './getStockUtils.service';
 export class StocksController {
   constructor(private readonly stocksService: StocksService) {}
 
-  @Get('sp500')
+  @Get('stocklist')
   async getSP500List(@Query('apiKey') apiKey: string): Promise<any> {
-    return this.stocksService.getSP500List(apiKey);
+    return this.stocksService.getAllStocks(apiKey);
   }
 }
