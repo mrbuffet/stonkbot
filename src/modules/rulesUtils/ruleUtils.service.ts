@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { DataUtilsService } from '../dataUtils/dataUtils.service';
+import { QuoteSummaryResult } from 'yahoo-finance2/dist/esm/src/modules/quoteSummary-iface';
 
 @Injectable()
 export class RuleUtilsService {
@@ -7,18 +8,18 @@ export class RuleUtilsService {
 
   private readonly logger = new Logger(RuleUtilsService.name);
 
-  public async trailingVsForwardPeRule(symbol: string) {
+  public async trailingVsForwardPeRule(stockData: QuoteSummaryResult) {
     if (
-      (await this.DataUtilsService.getForwardPE(symbol)) === undefined ||
-      (await this.DataUtilsService.getTrailingPE(symbol)) === undefined
+      !this.DataUtilsService.getForwardPE ||
+      !this.DataUtilsService.getTrailingPE
     ) {
       this.logger.log('PE Rule Failed');
       return false;
     }
     this.logger.log('Starting PE Rule');
     if (
-      (await this.DataUtilsService.getForwardPE(symbol)) <
-      (await this.DataUtilsService.getTrailingPE(symbol))
+      (await this.DataUtilsService.getForwardPE) <
+      (await this.DataUtilsService.getTrailingPE)
     ) {
       this.logger.log('PE Rule Passed');
       return true;
@@ -28,8 +29,8 @@ export class RuleUtilsService {
     }
   }
 
-  public async priceChangeRule(symbol: string) {
-    if ((await this.DataUtilsService.getLiveStockPriceChange(symbol)) > 0) {
+  public async priceChangeRule(stockData: QuoteSummaryResult) {
+    if ((await this.DataUtilsService.getLiveStockPriceChange) > 0) {
       this.logger.log('Price Change Rule Passed');
       return true;
     } else {

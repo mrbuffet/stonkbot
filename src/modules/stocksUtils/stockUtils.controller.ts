@@ -1,11 +1,11 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import { StocksService } from './getStockUtils.service';
+import { Controller, Get, Logger, Query } from '@nestjs/common';
+import { StocksService } from './stockUtils.service';
 
-@Controller('stocks')
+@Controller('/stocks')
 export class StocksController {
   constructor(private readonly stocksService: StocksService) {}
 
-  @Get('stocklist')
+  @Get('/stocklist')
   async getSP500List(@Query('apiKey') apiKey: string): Promise<any> {
     return this.stocksService.getAllStocks(apiKey);
   }

@@ -15,23 +15,11 @@ export class RuleUtilsController {
   async run(@Body() requestBody: { symbol: string }): Promise<any> {
     const { symbol } = requestBody;
 
-    if (!symbol) {
-      return { error: 'Symbol parameter is missing.' };
-    }
-
     const data = await this.dataUtilsService.fetchStockData(symbol);
     this.logger.log(`Data for ${symbol}: ${data}`);
 
-    const price = await this.dataUtilsService.getLiveStockPrice(symbol);
-    this.logger.log(`Price for ${symbol}: ${price}`);
-
-    const priceChange = await this.dataUtilsService.getLiveStockPriceChange(
-      symbol,
-    );
-    this.logger.log(`Price change for ${symbol}: ${priceChange}`);
-
-    const rule1 = await this.ruleUtilsService.trailingVsForwardPeRule(symbol);
+    const rule1 = await this.ruleUtilsService.trailingVsForwardPeRule(data);
     this.logger.log(`Rule 1 for ${symbol}: ${rule1}`);
-    return rule1;
+    return { rule1 };
   }
 }

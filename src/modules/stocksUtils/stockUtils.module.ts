@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { StocksService } from './getStockUtils.service';
-import { StocksController } from './getStockUtils.controller';
+import { StocksService } from './stockUtils.service';
+import { StocksController } from './stockUtils.controller';
 import { HttpModule } from '@nestjs/axios';
 @Module({
   imports: [HttpModule], // We import the HttpModule so we can use it in our service.
